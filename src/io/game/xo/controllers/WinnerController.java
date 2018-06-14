@@ -2,7 +2,6 @@ package io.game.xo.controllers;
 
 import io.game.xo.model.Field;
 import io.game.xo.model.Figure;
-import io.game.xo.model.Player;
 import io.game.xo.model.exceptions.InvalidPointException;
 
 import java.awt.*;
@@ -25,7 +24,7 @@ public class WinnerController {
             if(check(field, new Point(0, 2), p -> new Point(p.x + 1, p.y - 1)))
                 return field.getFigure(new Point(1, 1));
 
-        } catch (InvalidPointException e) {
+        } catch (final InvalidPointException e) {
             e.printStackTrace();
         }
         return null;
@@ -40,17 +39,22 @@ public class WinnerController {
         final Point nextPoint = pointGenerator.next(currentPoint);
         try {
             currentFigure = field.getFigure(currentPoint);
+
+            if (currentFigure == null) {
+                return false;
+            }
+
             nextFigure = field.getFigure(nextPoint);
         } catch (final InvalidPointException e) {
             return true;
         }
 
-        return currentFigure != null && currentFigure == nextFigure && check(field, nextPoint, pointGenerator);
+        return currentFigure == nextFigure && check(field, nextPoint, pointGenerator);
 
     }
 
     private interface IPointGenerator {
-        public Point next(final Point point);
+        Point next(final Point point);
     }
 
 }
