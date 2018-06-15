@@ -7,6 +7,11 @@ import io.game.xo.model.exceptions.InvalidPointException;
 
 public class CurrentMoveController {
 
+    /**
+     * This method need to set figure that have to be set in this turn
+     * @param field - game's field
+     * @return Figure - current player's figure
+     */
     public Figure currentMove(final Field field) {
         int countFigure = 0;
         for (int x = 0; x < field.getSize(); x++) {
@@ -17,6 +22,12 @@ public class CurrentMoveController {
         return countFigure % 2 == 0 ? Figure.X : Figure.O;
     }
 
+    /**
+     * Supporting method for currentMove method
+     * @param field - game's field
+     * @param row - row of the game's field now iterating over
+     * @return figures count in the current iterating game's field row
+     */
     private int countFiguresInRow(final Field field, final int row) {
         int countFigure = 0;
         for (int x = 0; x < field.getSize(); x++) {

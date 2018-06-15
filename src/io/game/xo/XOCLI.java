@@ -19,6 +19,7 @@ public class XOCLI {
         final Game gameXO = new Game(players, new Field(3), "XO");
 
         final ConsoleView consoleView = new ConsoleView();
+        // While game is going on - print field after each turn
         while (consoleView.move(gameXO)) {
             consoleView.show(gameXO);
         }

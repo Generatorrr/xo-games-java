@@ -7,6 +7,11 @@ import io.game.xo.model.exceptions.InvalidPointException;
 
 public class WinnerController {
 
+    /**
+     * Method to try get winner
+     * @param field - game's field
+     * @return figure of winner or null if have no winner
+     */
     public Figure getWinner(final Field field) {
         try {
             for (int i = 0; i < 3; i++)
@@ -29,6 +34,13 @@ public class WinnerController {
         return null;
     }
 
+    /**
+     *
+     * @param field - game's field
+     * @param currentPoint - current field's slot coordinate
+     * @param pointGenerator - rule for iterator, tells next method call coordinates of next slot to check
+     * @return false - game is not over, true - there is a winner -> game over
+     */
     private boolean check(final Field field,
                           final Point currentPoint,
                           final IPointGenerator pointGenerator) {
@@ -40,18 +52,24 @@ public class WinnerController {
             currentFigure = field.getFigure(currentPoint);
 
             if (currentFigure == null) {
+                // empty field - game is not over
                 return false;
             }
 
             nextFigure = field.getFigure(nextPoint);
         } catch (final InvalidPointException e) {
+            // there are no more slots in line and
+            // all slots were filled with same figures - we have a winner, game over
             return true;
         }
-
+        // recursive call itself to next field's slot if right conditions
         return currentFigure == nextFigure && check(field, nextPoint, pointGenerator);
 
     }
 
+    /**
+     * Rule for change checking coordinates for next call of iterator
+     */
     private interface IPointGenerator {
         Point next(final Point point);
     }

@@ -4,20 +4,34 @@ import io.game.xo.model.exceptions.InvalidPointException;
 
 public class Field {
 
-    public static final int MIN_COORDINATE = 0;
+    private static final int MIN_COORDINATE = 0;
 
     private final int fieldSize;
     private final Figure[][] field;
 
+    /**
+     * Constructor
+     * @param fieldSize - size of your square field
+     */
     public Field(final int fieldSize) {
         this.fieldSize = fieldSize;
         this.field = new Figure[fieldSize][fieldSize];
     }
 
+    /**
+     * Method to get field size
+     * @return field size
+     */
     public int getSize() {
         return fieldSize;
     }
 
+    /**
+     * Try to get figure lies in field's slot by coordinates
+     * @param point - input point (coordinates)
+     * @return figure lies in field's slot by passed coordinates, or null if there isn't figure by passed coordinates
+     * @throws InvalidPointException - throws if invalid coordinates were passed
+     */
     public Figure getFigure(final Point point) throws InvalidPointException {
         if (!checkPoint(point)) {
             throw new InvalidPointException();
@@ -25,6 +39,12 @@ public class Field {
         return field[point.y][point.x];
     }
 
+    /**
+     * Set figure to field's slot if valid
+     * @param point - input point
+     * @param figure - input figure
+     * @throws InvalidPointException - throws if check not passed
+     */
     public void setFigure(final Point point, final Figure figure) throws InvalidPointException {
         if (!checkPoint(point)) {
             throw new InvalidPointException();
@@ -33,10 +53,21 @@ public class Field {
         field[point.y][point.x] = figure;
     }
 
+    /**
+     * Check input point for valid coordinates
+     * @param point - input point to check
+     * @return true - valid, false - invalid
+     */
     private boolean checkPoint(final Point point) {
         return checkCoordinate(point.x, field.length) && checkCoordinate(point.y, field[point.x].length);
     }
 
+    /**
+     * Checks coordinate validity
+     * @param coordinate - coordinate to check
+     * @param maxCoordinate - max valid coordinate
+     * @return true - valid, false - invalid
+     */
     private boolean checkCoordinate(final int coordinate, final int maxCoordinate) {
         return coordinate >= MIN_COORDINATE && coordinate < maxCoordinate;
     }
