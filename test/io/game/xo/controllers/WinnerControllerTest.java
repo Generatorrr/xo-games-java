@@ -2,10 +2,8 @@ package io.game.xo.controllers;
 
 import io.game.xo.model.Field;
 import io.game.xo.model.Figure;
-import io.game.xo.model.exceptions.InvalidPointException;
+import io.game.xo.model.Point;
 import org.junit.Test;
-
-import java.awt.*;
 
 import static org.junit.Assert.*;
 

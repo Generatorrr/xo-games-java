@@ -1,10 +1,7 @@
 package io.game.xo.model;
 
-import io.game.xo.model.exceptions.AlreadyOccupiedException;
 import io.game.xo.model.exceptions.InvalidPointException;
 import org.junit.Test;
-
-import java.awt.*;
 
 import static org.junit.Assert.*;
 

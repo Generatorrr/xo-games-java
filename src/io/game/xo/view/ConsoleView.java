@@ -6,10 +6,10 @@ import io.game.xo.controllers.WinnerController;
 import io.game.xo.model.Field;
 import io.game.xo.model.Figure;
 import io.game.xo.model.Game;
+import io.game.xo.model.Point;
 import io.game.xo.model.exceptions.AlreadyOccupiedException;
 import io.game.xo.model.exceptions.InvalidPointException;
 
-import java.awt.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

@@ -2,8 +2,6 @@ package io.game.xo.model;
 
 import io.game.xo.model.exceptions.InvalidPointException;
 
-import java.awt.*;
-
 public class Field {
 
     public static final int MIN_COORDINATE = 0;

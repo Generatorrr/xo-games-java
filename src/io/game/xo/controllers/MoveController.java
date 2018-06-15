@@ -2,10 +2,10 @@ package io.game.xo.controllers;
 
 import io.game.xo.model.Field;
 import io.game.xo.model.Figure;
+import io.game.xo.model.Point;
 import io.game.xo.model.exceptions.AlreadyOccupiedException;
 import io.game.xo.model.exceptions.InvalidPointException;
 
-import java.awt.*;
 
 public class MoveController {
 
