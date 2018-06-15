@@ -47,7 +47,7 @@ public class ConsoleView {
         try {
             moveController.applyFigure(field, point, currentFigure);
         } catch (InvalidPointException | AlreadyOccupiedException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
             System.out.println("Point is invalid!");
         }
         return true;
