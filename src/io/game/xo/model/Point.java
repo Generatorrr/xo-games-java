@@ -1,6 +1,6 @@
 package io.game.xo.model;
 
-public final class Point {
+public class Point {
 
     public final int x;
     public final int y;
