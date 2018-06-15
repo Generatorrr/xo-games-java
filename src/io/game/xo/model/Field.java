@@ -24,7 +24,7 @@ public class Field {
         if (!checkPoint(point)) {
             throw new InvalidPointException();
         }
-        return field[point.x][point.y];
+        return field[point.y][point.x];
     }
 
     public void setFigure(final Point point, final Figure figure) throws InvalidPointException {
@@ -32,7 +32,7 @@ public class Field {
             throw new InvalidPointException();
         }
 
-        field[point.x][point.y] = figure;
+        field[point.y][point.x] = figure;
     }
 
     private boolean checkPoint(final Point point) {
