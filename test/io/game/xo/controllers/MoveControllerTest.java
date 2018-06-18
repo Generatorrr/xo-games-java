@@ -14,7 +14,7 @@ public class MoveControllerTest {
     @Test
     public void applyFigure() {
         final MoveController moveController = new MoveController();
-        final Field field = new Field(3);
+        final Field<Figure> field = new Field<>(3);
         final Point point = new Point(0, 0);
         final Figure figure = Figure.X;
         try {
@@ -35,7 +35,7 @@ public class MoveControllerTest {
     @Test
     public void applyFigureToNotEmptyField() {
         final MoveController moveController = new MoveController();
-        final Field field = new Field(3);
+        final Field<Figure> field = new Field<>(3);
         final Point point = new Point(0, 0);
         final Figure figure = Figure.X;
         try {

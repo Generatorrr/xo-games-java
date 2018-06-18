@@ -23,9 +23,9 @@ public class ConsoleView {
      * Show field in console
      * @param game - game knows all about field and players
      */
-    public void show(final Game game) {
+    public void show(final Game<Figure> game) {
         System.out.format("Game name: %s\n", game.getName());
-        final Field field = game.getField();
+        final Field<Figure> field = game.getField();
 
         for (int x = 0; x < field.getSize(); x++) {
             if(x != 0)
@@ -39,8 +39,8 @@ public class ConsoleView {
      * @param game - game knows all about field and players
      * @return true - game is go on, false - game over
      */
-    public boolean move(final Game game) {
-        final Field field = game.getField();
+    public boolean move(final Game<Figure> game) {
+        final Field<Figure> field = game.getField();
         final Figure winner = winnerController.getWinner(field);
         // winner != null - we have a winner
         if (winner != null) {
@@ -97,7 +97,7 @@ public class ConsoleView {
      * @param field - game's field
      * @param x - number of current field's row
      */
-    private void printLine(final Field field, final int x) {
+    private void printLine(final Field<Figure> field, final int x) {
         // Iterate over field row's elements
         for (int y = 0; y < field.getSize(); y++) {
             if (y != 0)

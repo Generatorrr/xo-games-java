@@ -12,7 +12,7 @@ public class CurrentMoveController {
      * @param field - game's field
      * @return Figure - current player's figure
      */
-    public Figure currentMove(final Field field) {
+    public Figure currentMove(final Field<Figure> field) {
         int countFigure = 0;
         for (int x = 0; x < field.getSize(); x++) {
             countFigure += countFiguresInRow(field, x);
@@ -28,7 +28,7 @@ public class CurrentMoveController {
      * @param row - row of the game's field now iterating over
      * @return figures count in the current iterating game's field row
      */
-    private int countFiguresInRow(final Field field, final int row) {
+    private int countFiguresInRow(final Field<Figure> field, final int row) {
         int countFigure = 0;
         for (int x = 0; x < field.getSize(); x++) {
             try {

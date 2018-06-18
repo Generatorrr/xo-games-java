@@ -1,9 +1,9 @@
 package io.game.xo.model;
 
-public class Game {
+public class Game<F> {
 
     private final Player[] players;
-    private final Field field;
+    private final Field<F> field;
     private final String name;
 
     /**
@@ -12,7 +12,7 @@ public class Game {
      * @param field - field to store figures
      * @param name - game name
      */
-    public Game(final Player[] players, final Field field, final String name) {
+    public Game(final Player[] players, final Field<F> field, final String name) {
         this.players = players;
         this.field = field;
         this.name = name;
@@ -30,7 +30,7 @@ public class Game {
      * Method to get field
      * @return game's field
      */
-    public Field getField() {
+    public Field<F> getField() {
         return field;
     }
 

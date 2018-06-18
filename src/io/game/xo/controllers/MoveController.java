@@ -17,7 +17,7 @@ public class MoveController {
      * @throws InvalidPointException - throws if you tried to set figure with point coordinates out of field size
      * @throws AlreadyOccupiedException - throws if you tried to set figure with not empty coordinates
      */
-    public void applyFigure(final Field field,
+    public void applyFigure(final Field<Figure> field,
                             final Point point,
                             final Figure figure) throws InvalidPointException, AlreadyOccupiedException {
 
